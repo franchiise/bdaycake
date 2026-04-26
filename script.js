@@ -19,12 +19,16 @@ startBtn.addEventListener('click', async () => {
       
         const stream = await
         
-        navigator.mediaDevices.getUserMedia({ 
+        navigator.mediaDevices.getUserMedia({
+
             audio: {
+
                 echoCancellation: false,
                 noiseSuppression: false,
                 autoGainControl: false
+
             } 
+            
         });
 
         const analyser = audioContext.createAnalyser();
@@ -50,7 +54,7 @@ startBtn.addEventListener('click', async () => {
                 sum += dataArray[i];
               
             }
-          
+
             let lowAverage = sum / 10;
 
             if (lowAverage > 100) {
